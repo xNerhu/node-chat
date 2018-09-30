@@ -1,5 +1,8 @@
+@import './mixins/positioning';
+@import './mixins/shadows';
 @import './mixins/typography';
 @import './components/App/styles';
+@import './components/StartSettings/styles';
 
 @font-face {
   font-family: 'Roboto';
@@ -26,12 +29,12 @@ html,
 body {
   user-select: none;
   cursor: default;
-  background-color: white;
+  background-color: #fafafa;
   padding: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   margin: 0;
 
-  @include Body2;
+  @include body2;
 }

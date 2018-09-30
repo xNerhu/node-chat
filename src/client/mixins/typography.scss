@@ -1,19 +1,19 @@
-@mixin Roboto-Regular {
+@mixin roboto-regular {
   font-family: Roboto, sans-serif;
   font-weight: 400;
 }
 
-@mixin Roboto-Medium {
+@mixin roboto-medium {
   font-family: Roboto, sans-serif;
   font-weight: 500;
 }
 
-@mixin Roboto-Light {
+@mixin roboto-light {
   font-family: Roboto, sans-serif;
   font-weight: 300;
 }
 
-@mixin Body2 {
+@mixin body2 {
   font-size: 14px;
-  @include Roboto-Regular();
+  @include roboto-regular();
 }

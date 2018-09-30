@@ -1,0 +1,11 @@
+.start-settings {
+  width: 100%;
+  max-width: 640px;
+  height: 75vh;
+  background-color: #fff;
+  border-radius: 4px;
+  position: absolute;
+
+  @include center-both();
+  @include shadow(4);
+}
