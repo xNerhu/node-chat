@@ -10,4 +10,8 @@ module.exports = (env, argv) =>
       path: __dirname,
       filename: 'server.bundle.js',
     },
+
+    externals: {
+      'socket.io': 'require("socket.io")',
+    },
   });

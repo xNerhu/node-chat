@@ -1,7 +1,18 @@
 import React from 'react';
+import io from 'socket.io-client';
 
-export default class App extends React.Component {
+let socket: SocketIOClient.Socket;
+
+class App extends React.Component {
   private input: HTMLInputElement;
+
+  public componentDidMount() {
+    socket = io.connect('http://localhost:8080');
+
+    socket.on('receive-message', (data: any) => {
+      console.log(data);
+    });
+  }
 
   private onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -14,7 +25,7 @@ export default class App extends React.Component {
   };
 
   public send = (message: string) => {
-    console.log(message);
+    socket.emit('send-message', message);
   };
 
   render() {
@@ -36,3 +47,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;
