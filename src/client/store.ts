@@ -5,7 +5,7 @@ export class Store {
   public nickname: string;
 
   @observable
-  public startSettingsVisible = true;
+  public startSettingsVisible = false;
 }
 
 export default new Store();

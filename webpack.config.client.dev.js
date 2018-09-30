@@ -25,28 +25,6 @@ const config = merge.smart(baseConfig, {
         include: resolve(__dirname, 'src/client'),
         use: ['url-loader'],
       },
-      {
-        test: /\.(scss)$/,
-        include: resolve(__dirname, 'src/client'),
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      },
     ],
   },
 

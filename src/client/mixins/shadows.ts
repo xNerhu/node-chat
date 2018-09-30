@@ -1,8 +1,8 @@
-$umbraOpacity: 0.2;
-$penumbraOpacity: 0.14;
-$ambientOpacity: 0.12;
+const umbraOpacity = 0.2;
+const penumbraOpacity = 0.14;
+const ambientOpacity = 0.12;
 
-$umbraMap: (
+const umbraMap = [
   '0px 0px 0px 0px',
   '0px 2px 1px -1px',
   '0px 3px 1px -2px',
@@ -27,10 +27,10 @@ $umbraMap: (
   '0px 10px 13px -6px',
   '0px 10px 14px -6px',
   '0px 11px 14px -7px',
-  '0px 11px 15px -7px'
-);
+  '0px 11px 15px -7px',
+];
 
-$penumbraMap: (
+const penumbraMap = [
   '0px 0px 0px 0px',
   '0px 1px 1px 0px',
   '0px 2px 2px 0px',
@@ -55,10 +55,10 @@ $penumbraMap: (
   '0px 21px 33px 3px',
   '0px 22px 35px 3px',
   '0px 23px 36px 3px',
-  '0px 24px 38px 3px'
-);
+  '0px 24px 38px 3px',
+];
 
-$ambientMap: (
+const ambientMap = [
   '0px 0px 0px 0px',
   '0px 1px 3px 0px',
   '0px 1px 5px 0px',
@@ -83,18 +83,21 @@ $ambientMap: (
   '0px 8px 40px 7px',
   '0px 8px 42px 7px',
   '0px 9px 44px 8px',
-  '0px 9px 46px 8px'
-);
+  '0px 9px 46px 8px',
+];
 
-@mixin shadow($depth, $r: 0, $g: 0, $b: 0, $opacity: 1) {
-  $umbraZ: #{nth($umbraMap, $depth)};
-  $penumbraZ: #{nth($penumbraMap, $depth)};
-  $ambientZ: #{nth($ambientMap, $depth)};
+export const shadows = (z: number, color = '0, 0, 0', opacity = 1) => {
+  const umbraZ = umbraMap[z];
+  const penumbraZ = penumbraMap[z];
+  const ambientZ = ambientMap[z];
 
-  $umbraColor: rgba($r, $g, $b, $umbraOpacity * $opacity);
-  $penumbraColor: rgba($r, $g, $b, $penumbraOpacity * $opacity);
-  $ambientColor: rgba($r, $g, $b, $ambientOpacity * $opacity);
+  const umbraColor = `rgba(${color}, ${umbraOpacity * opacity})`;
+  const penumbraColor = `rgba(${color}, ${penumbraOpacity * opacity})`;
+  const ambientColor = `rgba(${color}, ${ambientOpacity * opacity})`;
 
-  box-shadow: $umbraZ $umbraColor, $penumbraZ $penumbraColor,
-    $ambientZ $ambientColor;
-}
+  return `
+    ${umbraZ} ${umbraColor},
+    ${penumbraZ} ${penumbraColor},
+    ${ambientZ} ${ambientColor}
+  `;
+};
