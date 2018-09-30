@@ -1,11 +1,9 @@
 import { observable } from 'mobx';
+import { MessageData } from '@/interfaces';
 
 export class Store {
   @observable
-  public nickname: string;
-
-  @observable
-  public startSettingsVisible = false;
+  public messages: MessageData[] = [];
 }
 
 export default new Store();

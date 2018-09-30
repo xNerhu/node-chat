@@ -19,7 +19,14 @@
 
     "typeRoots": ["./node_modules/@types"],
 
-    "baseUrl": "./"
+    "baseUrl": "./",
+
+    "paths": {
+      "@client/*": ["src/client/*"],
+      "@server/*": ["src/server/*"],
+      "@/*": ["src/shared/*"],
+      "~/*": ["src/*"]
+    }
   },
   "awesomeTypescriptLoaderOptions": {
     "reportFiles": ["src/**/*.{ts,tsx}"],

@@ -1,0 +1,33 @@
+import styled from 'styled-components';
+import { transparency, colors } from '@client/constants';
+import { robotoRegular } from '@client/mixins';
+
+export const Root = styled.div`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Input = styled.input`
+  width: calc(100% - 64px);
+  height: 48px;
+  border: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  user-select: none;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  -webkit-text-fill-color: transparent;
+  background-color: rgba(0, 0, 0, 0.06);
+  font-size: 16px;
+  text-shadow: ${`0px 0px 0px rgba(0, 0, 0,${transparency.light.primaryText})`};
+  color: ${colors.indigo['500']};
+
+  ${robotoRegular()};
+`;
