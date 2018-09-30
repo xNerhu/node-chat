@@ -1,7 +1,11 @@
+$primary-color: #6200ee;
+
 @import './mixins/positioning';
 @import './mixins/shadows';
 @import './mixins/typography';
+
 @import './components/App/styles';
+@import './components/Input/styles';
 @import './components/StartSettings/styles';
 
 @font-face {
