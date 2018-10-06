@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 
 import store from '@client/store';
 import Message from '../Message';
+import NavigationDrawer from '../NavigationDrawer';
 import MessageBar from '../MessageBar';
 import { Root } from './styles';
 
@@ -10,12 +11,15 @@ import { Root } from './styles';
 export default class Content extends React.Component {
   render() {
     return (
-      <Root>
-        {store.messages.map((message, key) => {
-          return <Message data={message} key={key} />;
-        })}
-        <MessageBar />
-      </Root>
+      <React.Fragment>
+        <NavigationDrawer />
+        <Root>
+          {store.messages.map((message, key) => {
+            return <Message data={message} key={key} />;
+          })}
+          <MessageBar />
+        </Root>
+      </React.Fragment>
     );
   }
 }

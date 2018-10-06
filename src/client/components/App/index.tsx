@@ -1,9 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import store from '../../store';
-import NavigationDrawer from '../NavigationDrawer';
 import Content from '../Content';
+import LoginForm from '../LoginForm';
 import { Root } from './styles';
 
 @observer
@@ -21,10 +22,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <Root>
-        <NavigationDrawer />
-        <Content />
-      </Root>
+      <Router>
+        <Root>
+          <Route exact path="/" component={Content} />
+          <Route path="/login" component={LoginForm} />
+        </Root>
+      </Router>
     );
   }
 }

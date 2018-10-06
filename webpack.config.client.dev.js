@@ -54,6 +54,7 @@ const appConfig = merge.smart(config, {
     },
     hot: true,
     inline: true,
+    historyApiFallback: true,
   },
 });
 
