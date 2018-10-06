@@ -5,9 +5,7 @@ import { robotoRegular } from '@client/mixins';
 export const Root = styled.div`
   width: 100%;
   position: absolute;
-  bottom: 0;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,9 +15,8 @@ export const Input = styled.input`
   width: calc(100% - 64px);
   height: 48px;
   border: none;
-  padding-left: 16px;
-  padding-right: 16px;
-  user-select: none;
+  padding-left: 18px;
+  padding-right: 18px;
   outline: none;
   border: none;
   border-radius: 25px;

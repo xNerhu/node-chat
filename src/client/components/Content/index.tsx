@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 import store from '@client/store';
 import Message from '../Message';
-import BottomBar from '../BottomBar';
+import MessageBar from '../MessageBar';
 import { Root } from './styles';
 
 @observer
@@ -14,7 +14,7 @@ export default class Content extends React.Component {
         {store.messages.map((message, key) => {
           return <Message data={message} key={key} />;
         })}
-        <BottomBar />
+        <MessageBar />
       </Root>
     );
   }

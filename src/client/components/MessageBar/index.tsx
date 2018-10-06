@@ -4,11 +4,11 @@ import { observer } from 'mobx-react';
 import { Root, Input } from './styles';
 
 @observer
-export default class BottomBar extends React.Component {
+export default class MessageBar extends React.Component {
   render() {
     return (
       <Root>
-        <Input />
+        <Input spellCheck={false} />
       </Root>
     );
   }
