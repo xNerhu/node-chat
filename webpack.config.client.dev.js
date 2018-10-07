@@ -1,6 +1,5 @@
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { HotModuleReplacementPlugin } = require('webpack');
+const { smart } = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { resolve } = require('path');
 
@@ -8,7 +7,7 @@ const baseConfig = require('./webpack.config.base');
 
 const PORT = 3000;
 
-const config = merge.smart(baseConfig, {
+const config = smart(baseConfig, {
   devtool: 'eval-source-map',
   mode: 'development',
   output: {
@@ -30,11 +29,11 @@ const config = merge.smart(baseConfig, {
 
   plugins: [
     new CleanWebpackPlugin(['build']),
-    new webpack.HotModuleReplacementPlugin(),
+    new HotModuleReplacementPlugin(),
   ],
 });
 
-const appConfig = merge.smart(config, {
+const appConfig = smart(config, {
   entry: {
     app: ['react-hot-loader/patch', './src/client'],
   },

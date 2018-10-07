@@ -1,10 +1,9 @@
-const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { smart } = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { resolve } = require('path');
 const baseConfig = require('./webpack.config.base');
 
-const config = merge.smart(baseConfig, {
+const config = smart(baseConfig, {
   devtool: 'source-map',
   mode: 'production',
   output: {
@@ -25,7 +24,7 @@ const config = merge.smart(baseConfig, {
   plugins: [new CleanWebpackPlugin(['build'])],
 });
 
-const appConfig = merge.smart(config, {
+const appConfig = smart(config, {
   entry: {
     app: ['./src/client'],
   },

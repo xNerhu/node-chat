@@ -7,8 +7,8 @@ import passport from 'passport';
 import mongoose from 'mongoose';
 import { getConnectionURL } from '@/utils/server';
 
-import UserController from './controllers/user';
-import './passport';
+import * as AttachRoutes from './routes';
+import '@/utils/server/passport';
 
 class App {
   public app: express.Application;
@@ -18,7 +18,7 @@ class App {
 
     this.config();
     this.connectDb();
-    this.routes();
+    this.attachRoutes();
   }
 
   private config() {
@@ -42,32 +42,20 @@ class App {
     mongoose
       .connect(getConnectionURL())
       .then(() => {
-        console.log('MongoDB connected');
+        console.log('Database connected!');
       })
       .catch(err => {
         console.log(err);
       });
   }
 
-  private routes() {
-    this.app.get('/', (req, res, next) => {
-      if (!req.isAuthenticated()) {
-        return res.redirect('/login');
-      } else {
-        next();
-      }
-    });
+  private attachRoutes() {
+    if (process.env.NODE_ENV === 'development') {
+      AttachRoutes.dev(this.app);
+    }
 
-    this.app.post('/api/login', (req, res, next) => {
-      passport.authenticate('local', (err, user, info) => {
-        if (err) return next();
-
-        req.login(user, err => {
-          console.log('logged');
-          return res.json({ success: true });
-        });
-      })(req, res, next);
-    });
+    AttachRoutes.user(this.app);
+    AttachRoutes.content(this.app);
 
     this.app.get('*', (req, res) => {
       return res.render('index');

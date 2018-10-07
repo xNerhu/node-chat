@@ -5,7 +5,7 @@ module.exports = (env, argv) =>
   merge.smart(baseConfig, {
     target: 'node',
     entry: './src/server',
-
+    mode: 'development',
     output: {
       path: __dirname,
       filename: 'server.bundle.js',
