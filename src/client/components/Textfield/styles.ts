@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { transparency } from '@client/constants';
+import { transparency } from '@/constants/client';
 import { centerImage, robotoRegular } from '@client/mixins';
 
 export const Root = styled.div`

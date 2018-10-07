@@ -12,4 +12,15 @@
   <div id="app"></div>
 </body>
 
+<script src="./load-scripts.js"></script>
+<script>
+  const isLocalhost = window.location.href.startsWith("http://localhost");
+
+  if (isLocalhost) {
+    loadScripts([`http://localhost:3000/app.bundle.js`]);
+  } else {
+    loadScripts([`./app.bundle.js`]);
+  }
+</script>
+
 </html>

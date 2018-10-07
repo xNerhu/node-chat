@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import store from '../../store';
 import Content from '../Content';
@@ -22,12 +22,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <Root>
           <Route exact path="/" component={Content} />
           <Route path="/login" component={LoginForm} />
         </Root>
-      </Router>
+      </BrowserRouter>
     );
   }
 }

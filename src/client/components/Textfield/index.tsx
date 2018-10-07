@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { colors } from '@client/constants';
-import { executeEventStopPropagation } from '@client/utils';
+import { colors } from '@/constants/client';
+import { executeEventStopPropagation } from '@/utils/client';
 import {
   AssistiveText,
   Container,

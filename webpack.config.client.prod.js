@@ -22,12 +22,7 @@ const config = merge.smart(baseConfig, {
     ],
   },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
-    new CleanWebpackPlugin(['build']),
-  ],
+  plugins: [new CleanWebpackPlugin(['build'])],
 });
 
 const appConfig = merge.smart(config, {

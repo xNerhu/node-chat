@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { colors } from '~/client/constants';
+
+import { colors } from '@/constants/client';
 
 export const Root = styled.div`
   width: 256px;

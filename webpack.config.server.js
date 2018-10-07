@@ -13,5 +13,8 @@ module.exports = (env, argv) =>
 
     externals: {
       'socket.io': 'require("socket.io")',
+      express: 'require("express")',
+      mongoose: 'require("mongoose")',
+      bcrypt: 'require("bcrypt")',
     },
   });

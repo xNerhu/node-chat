@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { centerBoth, shadows, button } from '@client/mixins';
-import { colors } from '@client/constants';
+import { colors } from '@/constants/client';
 
 export const Root = styled.div`
   width: 100%;

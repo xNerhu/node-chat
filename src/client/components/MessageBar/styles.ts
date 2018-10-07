@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { transparency, colors } from '@client/constants';
+
+import { transparency, colors } from '@/constants/client';
 import { robotoRegular } from '@client/mixins';
 
 export const Root = styled.div`

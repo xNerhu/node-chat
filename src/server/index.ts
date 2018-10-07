@@ -1,24 +1,16 @@
 import express from 'express';
+import session from 'express-session';
+import cookieParser from 'cookie-parser';
 import http from 'http';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
+import passport from 'passport';
+import mongoose from 'mongoose';
 import socketIO from 'socket.io';
 
-const app = express();
-const server = http.createServer(app);
-const io = socketIO(server);
+import { config } from '@/constants/server';
+import app from './app';
 
-app.use(helmet());
-app.use(express.static('build'));
-
-io.on('connection', socket => {
-  socket.on('send-message', data => {
-    console.log(`Message: ${data}`);
-
-    socket.emit('receive-message', data);
-  });
-});
-
-server.listen(8080, () => {
-  console.log('Listening on port 8080!');
+http.createServer(app).listen(config.express.port, () => {
+  console.log(`Listening on port ${config.express.port}!`);
 });

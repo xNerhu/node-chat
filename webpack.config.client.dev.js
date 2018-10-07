@@ -29,9 +29,6 @@ const config = merge.smart(baseConfig, {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
     new CleanWebpackPlugin(['build']),
     new webpack.HotModuleReplacementPlugin(),
   ],
