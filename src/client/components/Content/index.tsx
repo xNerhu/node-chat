@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import store from '@client/store';
 import Message from '../Message';
 import NavigationDrawer from '../NavigationDrawer';
 import MessageBar from '../MessageBar';
@@ -14,9 +13,8 @@ export default class Content extends React.Component {
       <React.Fragment>
         <NavigationDrawer />
         <Root>
-          {store.messages.map((message, key) => {
-            return <Message data={message} key={key} />;
-          })}
+          <Message data={{ content: 'Hello!' }} />
+          <Message data={{ content: 'Whats up?' }} />
           <MessageBar />
         </Root>
       </React.Fragment>

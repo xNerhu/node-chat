@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 import Textfield from '../Textfield';
 import { Root, Button } from './styles';
-import { requestAPI } from '@/utils/client';
+import { requestAPI } from '@client/utils';
 
 interface Props {
   history?: any;

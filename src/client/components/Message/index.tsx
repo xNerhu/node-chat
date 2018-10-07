@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { Root } from './styles';
-import { MessageData } from '@/interfaces';
 
 interface Props {
-  data: MessageData;
+  data: any;
 }
 
 export default class Message extends React.Component<Props, {}> {

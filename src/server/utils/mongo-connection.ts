@@ -1,4 +1,4 @@
-import { config } from '@/constants/server';
+import { config } from '@server/constants';
 
 export const getConnectionURL = () => {
   const { localhost, user, password, ip, port } = config.mongo;

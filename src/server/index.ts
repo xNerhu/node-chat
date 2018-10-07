@@ -8,7 +8,7 @@ import passport from 'passport';
 import mongoose from 'mongoose';
 import socketIO from 'socket.io';
 
-import { config } from '@/constants/server';
+import { config } from '@server/constants';
 import app from './app';
 
 http.createServer(app).listen(config.express.port, () => {

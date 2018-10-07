@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { fonts } from '@/constants/client';
+import { fonts } from '@client/constants';
 import { body2 } from '@client/mixins';
 
 export const Style = css`

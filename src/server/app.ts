@@ -5,10 +5,10 @@ import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import passport from 'passport';
 import mongoose from 'mongoose';
-import { getConnectionURL } from '@/utils/server';
 
-import * as AttachRoutes from './routes';
-import '@/utils/server/passport';
+import './utils/passport';
+import { getConnectionURL } from './utils';
+import * as Routes from './routes';
 
 class App {
   public app: express.Application;
@@ -51,11 +51,11 @@ class App {
 
   private attachRoutes() {
     if (process.env.NODE_ENV === 'development') {
-      AttachRoutes.dev(this.app);
+      Routes.dev(this.app);
     }
 
-    AttachRoutes.user(this.app);
-    AttachRoutes.content(this.app);
+    Routes.user(this.app);
+    Routes.content(this.app);
 
     this.app.get('*', (req, res) => {
       return res.render('index');
