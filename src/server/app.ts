@@ -6,9 +6,9 @@ import bodyParser from 'body-parser';
 import passport from 'passport';
 import mongoose from 'mongoose';
 
-import './utils/passport';
-import { getConnectionURL } from './utils';
 import * as Routes from './routes';
+import { config } from '@server/constants';
+import './utils/passport';
 
 class App {
   public app: express.Application;
@@ -40,7 +40,7 @@ class App {
   private connectDb() {
     mongoose.Promise = global.Promise;
     mongoose
-      .connect(getConnectionURL())
+      .connect(config.mongo.url)
       .then(() => {
         console.log('Database connected!');
       })
@@ -50,13 +50,13 @@ class App {
   }
 
   private attachRoutes() {
-    if (process.env.NODE_ENV === 'development') {
+    /*if (process.env.NODE_ENV === 'development') {
       Routes.dev(this.app);
     }
 
     Routes.user(this.app);
     Routes.content(this.app);
-
+*/
     this.app.get('*', (req, res) => {
       return res.render('index');
     });

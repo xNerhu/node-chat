@@ -14,7 +14,8 @@ const config = smart(baseConfig, {
     hotUpdateChunkFilename: 'hot/hot-update.js',
     hotUpdateMainFilename: 'hot/hot-update.json',
     path: resolve(__dirname, 'build'),
-    filename: '[name].bundle.js',
+    filename: '[name].bndle.js',
+    publicPath: '...',
   },
 
   module: {
